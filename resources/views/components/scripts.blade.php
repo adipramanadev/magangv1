@@ -3,7 +3,10 @@
 <script src="{{ asset('assets/plugin/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 <script src="{{ asset('assets/plugin/nprogress/nprogress.js') }}"></script>
-<script src="{{ asset('assets/plugin/sweet-alert/sweetalert.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/plugin/sweet-alert/sweetalert.min.js') }}"></script> --}}
+<!-- Tambahkan di <head> atau sebelum </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script src="{{ asset('assets/plugin/waves/waves.min.js') }}"></script>
 <!-- Full Screen Plugin -->
 <script src="{{ asset('assets/plugin/fullscreen/jquery.fullscreen-min.js') }}"></script>

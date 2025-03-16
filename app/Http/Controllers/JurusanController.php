@@ -31,19 +31,19 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $request->validate([
             'nama_jurusan' => 'required|string|max:100',
             'status' => 'required|in:active,nonactive',
         ]);
-        // Simpan data ke database
+
         Jurusan::create([
             'nama_jurusan' => $request->nama_jurusan,
             'status' => $request->status,
         ]);
-        // Redirect ke halaman index
-        return redirect()->route('jurusan.index');
+
+        return redirect()->route('jurusan.index')->with('success', 'Jurusan berhasil ditambahkan!');
     }
+
 
     /**
      * Display the specified resource.
