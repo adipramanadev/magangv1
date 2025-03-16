@@ -1,6 +1,8 @@
 @extends('master')
 
-@section('title', 'Tambah')
+@section('title')
+    Add Data Jurusan
+@endsection
 
 @section('content')
     <div class="row small-spacing">
@@ -9,19 +11,21 @@
                 <h4 class="box-title">Add Data Jurusan</h4>
                 <!-- /.box-title -->
                 <div class="card-content">
-                    <form class="form-horizontal">
+                    <form id="jurusanForm" action="{{ route('jurusan.store') }}" method="POST" class="form-horizontal">
+                        @csrf
+                        @method('POST')
                         <div class="form-group">
-                            <label for="namajurusan" class="col-sm-2 control-label">Nama Jurusan</label>
+                            <label for="nama_jurusan" class="col-sm-2 control-label">Nama Jurusan</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputEmail3"
+                                <input type="text" class="form-control" id="nama_jurusan" name="nama_jurusan"
                                     placeholder="Input Nama Jurusan">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="status" class="col-sm-2 control-label">Status</label>
                             <div class="col-sm-10">
-                                <select name="" class="form-control">
-                                    <option value="0">Pilih Status</option>
+                                <select name="status" id="status" class="form-control">
+                                    <option value="">Pilih Status</option>
                                     <option value="active">Aktif</option>
                                     <option value="nonactive">Tidak Aktif</option>
                                 </select>
@@ -40,4 +44,40 @@
             <!-- /.box-content -->
         </div>
     </div>
+
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("jurusanForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let nama_jurusan = document.getElementById("nama_jurusan").value.trim();
+            let status = document.getElementById("status").value.trim();
+
+            if (nama_jurusan === "" || status === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Harap isi semua bidang!',
+                });
+            } else {
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Pastikan data yang dimasukkan sudah benar!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, Simpan!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById("jurusanForm").submit();
+                    }
+                });
+            }
+        });
+    });
+</script>
 @endsection
