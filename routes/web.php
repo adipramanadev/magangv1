@@ -14,4 +14,7 @@ Route::group(['prefix' => 'admin/v1'], function () {
     Route::get('/', [App\Http\Controllers\JurusanController::class, 'index'])->name('jurusan.index');
     Route::get('/jurusan/create', [App\Http\Controllers\JurusanController::class, 'create'])->name('jurusan.create');
     Route::post('/jurusan', [App\Http\Controllers\JurusanController::class, 'store'])->name('jurusan.store');
+    Route::get('/jurusan/{id}/edit', [App\Http\Controllers\JurusanController::class, 'edit'])->name('jurusan.edit');
+    Route::put('/jurusan/{id}/update', [App\Http\Controllers\JurusanController::class, 'update'])->name('jurusan.update');
+    Route::delete('/jurusan/{id}/destroy', [App\Http\Controllers\JurusanController::class, 'destroy'])->name('jurusan.destroy');
 });

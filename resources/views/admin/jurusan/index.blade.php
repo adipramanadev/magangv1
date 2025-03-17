@@ -35,8 +35,10 @@
                                     <td>{{ $jurusan->nama_jurusan }}</td>
                                     <td>{{ $jurusan->status }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-warning btn-xs">Edit</a>
-                                        <form action="#" method="post" style="display: inline-block">
+                                        <a href="{{ route('jurusan.edit', $jurusan->id) }}"
+                                            class="btn btn-warning btn-xs">Edit</a>
+                                        <form action="{{ route('jurusan.destroy', $jurusan->id) }}" method="post"
+                                            style="display: inline-block">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-xs">Delete</button>
