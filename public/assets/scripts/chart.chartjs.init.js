@@ -76,18 +76,10 @@
 							ticks: {
 								beginAtZero:true
 							},
-							gridLines: {
-								color: 'rgba(255,255,255,0.2)',
-								zeroLineColor: 'rgba(255,255,255,0.4)',
-							}
 						}],
 						yAxes: [{
 							ticks: {
 								beginAtZero:true
-							},
-							gridLines: {
-								color: 'rgba(255,255,255,0.2)',
-								zeroLineColor: 'rgba(255,255,255,0.4)',
 							}
 						}],
 					},
@@ -121,19 +113,11 @@
 						xAxes: [{
 							ticks: {
 								beginAtZero:true
-							},
-							gridLines: {
-								color: 'rgba(255,255,255,0.2)',
-								zeroLineColor: 'rgba(255,255,255,0.4)',
 							}
 						}],
 						yAxes: [{
 							ticks: {
 								beginAtZero:true
-							},
-							gridLines: {
-								color: 'rgba(255,255,255,0.2)',
-								zeroLineColor: 'rgba(255,255,255,0.4)',
 							}
 						}]
 					}
@@ -212,10 +196,7 @@
 							ticks: {
 								beginAtZero: true
 							},
-							gridLines: {
-								color: 'rgba(255,255,255,0.2)',
-								zeroLineColor: 'rgba(255,255,255,0.4)',
-							}
+							reverse: false
 						},
 						animation: {
 							animateRotate: false,

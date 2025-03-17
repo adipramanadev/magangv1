@@ -35,7 +35,7 @@
                                     <td>{{ $jurusan->nama_jurusan }}</td>
                                     <td>{{ $jurusan->status }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
+                                        <a href="#" class="btn btn-warning btn-xs">Edit</a>
                                         <form action="#" method="post" style="display: inline-block">
                                             @csrf
                                             @method('DELETE')
