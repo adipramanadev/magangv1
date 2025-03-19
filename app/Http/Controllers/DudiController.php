@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dudi;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class DudiController extends Controller
@@ -12,7 +13,8 @@ class DudiController extends Controller
      */
     public function index()
     {
-        //
+        $dudis = Dudi::all();
+        return view('admin.dudi.index', compact('dudis'));
     }
 
     /**
@@ -20,7 +22,9 @@ class DudiController extends Controller
      */
     public function create()
     {
-        //
+        //jurusan create 
+        $jurusans = Jurusan::where('status', 'active')->get();
+        return view('admin.dudi.create', compact('jurusans'));
     }
 
     /**
@@ -28,7 +32,26 @@ class DudiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the request data
+        $request->validate([
+            'nama_perusahaan' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'kontak' => 'required|string|max:20',
+            'jurusan_id' => 'required|exists:jurusans,id',
+            'status' => 'required|in:active,nonactive',
+        ]);
+
+        // Create a new Dudi entry
+        Dudi::create([
+            'nama_perusahaan' => $request->nama_perusahaan,
+            'alamat' => $request->alamat,
+            'kontak' => $request->kontak,
+            'jurusan_id' => $request->jurusan_id,
+            'status' => $request->status,
+        ]);
+
+        // Redirect back with a success message
+        return redirect()->route('dudi.index')->with('success', 'Dudi created successfully.');
     }
 
     /**

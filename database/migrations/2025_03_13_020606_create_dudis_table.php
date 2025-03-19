@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('dudis', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_perusahaan', 255); // Nama perusahaan
+            $table->text('alamat'); // Alamat perusahaan
+            $table->string('kontak', 20); // Nomor kontak perusahaan
+            $table->unsignedBigInteger('jurusan_id');
+            $table->foreign('jurusan_id')->references('id')->on('jurusans')->onDelete('cascade');
+            $table->enum('status', ['active', 'nonactive'])->nullable();
             $table->timestamps();
         });
     }

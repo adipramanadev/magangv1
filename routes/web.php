@@ -11,10 +11,19 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin/v1'], function () {
+    //Jurusan
     Route::get('/', [App\Http\Controllers\JurusanController::class, 'index'])->name('jurusan.index');
     Route::get('/jurusan/create', [App\Http\Controllers\JurusanController::class, 'create'])->name('jurusan.create');
     Route::post('/jurusan', [App\Http\Controllers\JurusanController::class, 'store'])->name('jurusan.store');
     Route::get('/jurusan/{id}/edit', [App\Http\Controllers\JurusanController::class, 'edit'])->name('jurusan.edit');
     Route::put('/jurusan/{id}/update', [App\Http\Controllers\JurusanController::class, 'update'])->name('jurusan.update');
     Route::delete('/jurusan/{id}/destroy', [App\Http\Controllers\JurusanController::class, 'destroy'])->name('jurusan.destroy');
+
+    //Dudi
+    Route::get('/dudi', [App\Http\Controllers\DudiController::class, 'index'])->name('dudi.index');
+    Route::get('/dudi/create', [App\Http\Controllers\DudiController::class, 'create'])->name('dudi.create');
+    Route::post('/dudi', [App\Http\Controllers\DudiController::class, 'store'])->name('dudi.store');
+    Route::get('/dudi/{id}/edit', [App\Http\Controllers\DudiController::class, 'edit'])->name('dudi.edit');
+    Route::put('/dudi/{id}/update', [App\Http\Controllers\DudiController::class, 'update'])->name('dudi.update');
+    Route::delete('/dudi/{id}/destroy', [App\Http\Controllers\DudiController::class, 'destroy'])->name('dudi.destroy');
 });

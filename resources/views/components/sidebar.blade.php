@@ -11,7 +11,7 @@
                     class="menu-arrow fa fa-angle-down"></span></a>
             <ul class="sub-menu js__content">
                 <li><a href="{{ route('jurusan.index') }}">Manajemen Jurusan</a></li>
-                <li><a href="icons-fontello.html">Fontello</a></li>
+                <li><a href="{{ route('dudi.index') }}">Manajemen Dudi</a></li>
                 <li><a href="icons-material-icons.html">Material Design Icons</a></li>
                 <li><a href="icons-material-design-iconic.html">Material Design Iconic Font</a></li>
                 <li><a href="icons-themify-icons.html">Themify Icons</a></li>
