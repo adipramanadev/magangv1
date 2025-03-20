@@ -26,4 +26,12 @@ Route::group(['prefix' => 'admin/v1'], function () {
     Route::get('/dudi/{id}/edit', [App\Http\Controllers\DudiController::class, 'edit'])->name('dudi.edit');
     Route::put('/dudi/{id}/update', [App\Http\Controllers\DudiController::class, 'update'])->name('dudi.update');
     Route::delete('/dudi/{id}/destroy', [App\Http\Controllers\DudiController::class, 'destroy'])->name('dudi.destroy');
+
+    //Guru 
+    Route::get('/guru', [App\Http\Controllers\GuruController::class, 'index'])->name('guru.index');
+    Route::get('/guru/create', [App\Http\Controllers\GuruController::class, 'create'])->name('guru.create');
+    Route::post('/guru', [App\Http\Controllers\GuruController::class, 'store'])->name('guru.store');
+    Route::get('/guru/{id}/edit', [App\Http\Controllers\GuruController::class, 'edit'])->name('guru.edit');
+    Route::put('/guru/{id}/update', [App\Http\Controllers\GuruController::class, 'update'])->name('guru.update');
+    Route::delete('/guru/{id}/destroy', [App\Http\Controllers\GuruController::class, 'destroy'])->name('guru.destroy');
 });

@@ -15,24 +15,3 @@
 
 <!-- Dark Themes -->
 <link rel="stylesheet" href="{{ asset('assets/styles/style-black.min.css') }}">
-
-<style>
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .main-content {
-        flex: 1;
-        /* Membuat konten utama mengisi ruang kosong */
-    }
-
-    .footer {
-        
-        padding: 10px 0;
-        text-align: center;
-    }
-</style>

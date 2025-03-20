@@ -12,7 +12,9 @@ class GuruController extends Controller
      */
     public function index()
     {
-        //
+        //redirect ke halaman guru
+        $gurus = Guru::all();
+        return view('admin.guru.index',compact('gurus'));
     }
 
     /**
@@ -20,7 +22,8 @@ class GuruController extends Controller
      */
     public function create()
     {
-        //
+        //redirect ke halaman tambah guru
+        return view('admin.guru.create');
     }
 
     /**

@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(JurusanSeeder::class);
+        $this->call(DudiSeeder::class); // Tambahkan baris ini
     }
 }
