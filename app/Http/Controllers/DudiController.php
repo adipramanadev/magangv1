@@ -65,24 +65,48 @@ class DudiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Dudi $dudi)
+    public function edit($id)
     {
-        //
+        //jurusan id
+        $jurusans = Jurusan::where('status', 'active')->get();
+        $dudi = Dudi::find($id);
+        return view('admin.dudi.edit', compact('dudi', 'jurusans'));
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Dudi $dudi)
+    public function update(Request $request, $id)
     {
-        //
+        // Validate the request data
+        $request->validate([
+            'nama_perusahaan' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'kontak' => 'required|string|max:20',
+            'jurusan_id' => 'required|exists:jurusans,id',
+            'status' => 'required|in:active,nonactive',
+        ]);
+
+        // update dudi
+        Dudi::find($id)->update([
+            'nama_perusahaan' => $request->nama_perusahaan,
+            'alamat' => $request->alamat,
+            'kontak' => $request->kontak,
+            'jurusan_id' => $request->jurusan_id,
+            'status' => $request->status,
+        ]);
+
+        // Redirect back with a success message
+        return redirect()->route('dudi.index')->with('success', 'Dudi created successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Dudi $dudi)
+    public function destroy($id)
     {
-        //
+        Dudi::find($id)->delete();
+        return redirect()->route('dudi.index')->with('success', 'Dudi berhasil dihapus!');
     }
 }

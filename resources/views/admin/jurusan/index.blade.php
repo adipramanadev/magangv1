@@ -33,7 +33,11 @@
                             @foreach ($jurusans as $jurusan)
                                 <tr>
                                     <td>{{ $jurusan->nama_jurusan }}</td>
-                                    <td>{{ $jurusan->status }}</td>
+                                    <td>@if ($jurusan->status == 'active')
+                                        <span class="btn btn-success">Aktif</span>
+                                    @else
+                                        <span class="btn btn-danger">Tidak Aktif</span>
+                                    @endif</td>
                                     <td>
                                         <a href="{{ route('jurusan.edit', $jurusan->id) }}"
                                             class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>

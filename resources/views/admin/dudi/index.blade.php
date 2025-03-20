@@ -33,13 +33,17 @@
                                     <td>{{ $dudi->kontak }}</td>
                                     <td>{{ $dudi->status }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                        <a href="#" class="btn btn-success" title="Detail"><i class="fa fa-eye"></i></a>
-                                        <form action="#" method="POST" class="d-inline">
+                                        <a href="{{ route('dudi.edit', $dudi->id) }}" class="btn btn-warning btn-sm"><i
+                                                class="fa fa-edit"></i></a>
+                                        <a href="#" class="btn btn-success" title="Detail"><i
+                                                class="fa fa-eye"></i></a>
+                                        <form action="{{ route('dudi.destroy', $dudi->id) }}" method="POST"
+                                            class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger btn-sm"
-                                                onclick="return confirm('Apakah Anda Yakin?')"><i class="fa fa-trash"></i></button>
+                                                onclick="return confirm('Apakah Anda Yakin?')"><i
+                                                    class="fa fa-trash"></i></button>
                                         </form>
                                 </tr>
                             @empty
