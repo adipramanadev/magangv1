@@ -1,6 +1,8 @@
 @extends('master')
 
-@section('title', 'Jurusan')
+@section('title')
+    Jurusan
+@endsection
 @section('content')
     <div class="row small-spacing">
         <div class="col-xs-12">
@@ -33,13 +35,22 @@
                             @foreach ($jurusans as $jurusan)
                                 <tr>
                                     <td>{{ $jurusan->nama_jurusan }}</td>
-                                    <td>{{ $jurusan->status }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                        <form action="#" method="post" style="display: inline-block">
+                                        @if ($jurusan->status == 'active')
+                                            <span class="btn btn-success">Aktif</span>
+                                        @else
+                                            <span class="btn btn-danger">Tidak Aktif</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('jurusan.edit', $jurusan->id) }}"
+                                            class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+                                        <form action="{{ route('jurusan.destroy', $jurusan->id) }}" method="post"
+                                            style="display: inline-block">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-xs"><i
+                                                    class="fa fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
