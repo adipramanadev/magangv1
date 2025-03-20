@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -22,8 +23,10 @@ class GuruController extends Controller
      */
     public function create()
     {
+        $users = User::where('role', 'guru')->get();
+
         //redirect ke halaman tambah guru
-        return view('admin.guru.create');
+        return view('admin.guru.create', compact('users'));
     }
 
     /**
@@ -31,7 +34,28 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // Validasi input
+        $request->validate([
+            'nip' => 'required|string|size:18|unique:gurus,nip',
+            'nama_guru' => 'required|string|max:100',
+            'user_id' => 'required|exists:users,id',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
+        ]);
+        // Ambil data user berdasarkan ID
+        $user = User::findOrFail($request->user_id);
+
+        // Simpan data guru
+        Guru::create([
+            'nip' => $request->nip,
+            'nama' => $request->nama_guru,
+            'user_id' => $user->id,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'email' => $user->email, // Menggunakan email dari user
+        ]);
+
+        // Redirect ke halaman daftar guru
+        return redirect()->route('guru.index')
+            ->with('success', 'Guru berhasil ditambahkan');
     }
 
     /**
@@ -61,8 +85,12 @@ class GuruController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Guru $guru)
+    public function destroy($id)
     {
         //
+        $guru = Guru::findOrFail($id)->delete();
+        
+        return redirect()->route('guru.index')
+            ->with('success', 'Guru berhasil dihapus');
     }
 }

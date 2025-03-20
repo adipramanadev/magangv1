@@ -13,5 +13,3 @@
 <!-- Data Tables -->
 <link rel="stylesheet" href="{{ asset('assets/plugin/datatables/media/css/jquery.dataTables.min.css') }}">
 
-<!-- Dark Themes -->
-<link rel="stylesheet" href="{{ asset('assets/styles/style-black.min.css') }}">

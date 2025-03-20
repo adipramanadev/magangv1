@@ -22,7 +22,7 @@
                             <tr>
                                 <th>Nama Guru</th>
                                 <th>Email</th>
-                                <th>Status</th>
+                                
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -30,7 +30,6 @@
                             <tr>
                                 <th>Nama Guru</th>
                                 <th>Email</th>
-                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -40,16 +39,9 @@
                                     <td>{{ $guru->nama }}</td>
                                     <td>{{ $guru->email }}</td>
                                     <td>
-                                        @if ($guru->status == 'active')
-                                            <span class="btn btn-success">Aktif</span>
-                                        @else
-                                            <span class="btn btn-danger">Tidak Aktif</span>
-                                        @endif
-                                    </td>
-                                    <td>
                                         <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
-                                        <form action="#" method="post" style="display: inline-block"
-                                            class="delete-form">
+                                        <form action="{{ route('guru.destroy', $guru->id) }}" method="post"
+                                            style="display: inline-block" class="delete-form">
                                             @csrf
                                             @method('DELETE')
                                             <button type="button" class="btn btn-danger btn-xs delete-btn"

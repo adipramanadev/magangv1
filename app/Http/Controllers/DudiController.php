@@ -57,9 +57,11 @@ class DudiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Dudi $dudi)
+    public function show($id)
     {
         //
+        $dudi = Dudi::find($id);
+        return view('admin.dudi.index', compact('dudi'));
     }
 
     /**
