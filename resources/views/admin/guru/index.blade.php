@@ -22,7 +22,7 @@
                             <tr>
                                 <th>Nama Guru</th>
                                 <th>Email</th>
-                                
+
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -39,7 +39,8 @@
                                     <td>{{ $guru->nama }}</td>
                                     <td>{{ $guru->email }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ route('guru.edit', $guru->id) }}" class="btn btn-warning btn-xs"><i
+                                                class="fa fa-edit"></i></a>
                                         <form action="{{ route('guru.destroy', $guru->id) }}" method="post"
                                             style="display: inline-block" class="delete-form">
                                             @csrf

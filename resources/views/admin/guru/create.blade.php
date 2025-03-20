@@ -63,9 +63,6 @@
                                 </select>
                             </div>
                         </div>
-
-                       
-
                         <!-- Tombol Simpan -->
                         <div class="form-group margin-bottom-1">
                             <div class="col-sm-offset-2 col-sm-10 d-flex justify-content-end">
@@ -101,7 +98,6 @@
                 let user_id = document.getElementById("user_id").value.trim();
                 let email = document.getElementById("email").value.trim();
                 let jenis_kelamin = document.getElementById("jenis_kelamin").value.trim();
-         
 
                 // Validasi Form
                 if (nip === "" || nama_guru === "" || user_id === "" || email === "" || jenis_kelamin === "") {
@@ -123,20 +119,42 @@
                     return;
                 }
 
-                // Jika Semua Validasi Lolos
-                Swal.fire({
-                    title: 'Apakah Anda yakin?',
-                    text: "Pastikan data yang dimasukkan sudah benar!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ya, Simpan!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        document.getElementById("guruForm").submit();
+                // Kirim data menggunakan AJAX untuk mengecek duplikasi sebelum submit
+                fetch("{{ route('guru.store') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify({
+                        nip: nip,
+                        nama_guru: nama_guru,
+                        user_id: user_id,
+                        email: email,
+                        jenis_kelamin: jenis_kelamin
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "error") {
+                        // Jika NIP atau User sudah ada, tampilkan error
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Gagal!',
+                            text: data.message,
+                        });
+                    } else {
+                        // Jika sukses, tampilkan notifikasi dan redirect
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sukses!',
+                            text: 'Guru berhasil ditambahkan!',
+                        }).then(() => {
+                            window.location.href = "{{ route('guru.index') }}";
+                        });
                     }
-                });
+                })
+                .catch(error => console.error("Error:", error));
             });
         });
     </script>
