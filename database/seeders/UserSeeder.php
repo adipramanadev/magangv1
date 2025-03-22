@@ -24,9 +24,9 @@ class UserSeeder extends Seeder
             ['name' => 'Guru 3', 'email' => 'guru3@example.com', 'role' => 'guru', 'status' => 'nonactive'],
             ['name' => 'Guru 4', 'email' => 'guru4@example.com', 'role' => 'guru', 'status' => 'active'],
             ['name' => 'Guru 5', 'email' => 'guru5@example.com', 'role' => 'guru', 'status' => 'nonactive'],
-            ['name' => 'Guru 6', 'email' => 'guru6@example.com', 'role' => 'guru', 'status' => 'active'],
-            ['name' => 'Guru 7', 'email' => 'guru7@example.com', 'role' => 'guru', 'status' => 'active'],
-            ['name' => 'Guru 8', 'email' => 'guru8@example.com', 'role' => 'guru', 'status' => 'nonactive'],
+            ['name' => 'Dudi 1', 'email' => 'dudi1@example.com', 'role' => 'dudi', 'status' => 'active'],
+            ['name' => 'Dudi 2', 'email' => 'dudi2@example.com', 'role' => 'dudi', 'status' => 'active'],
+            ['name' => 'Dudi 3', 'email' => 'dudi3@example.com', 'role' => 'dudi', 'status' => 'active'],
         ];
 
         // Looping untuk memasukkan data ke dalam tabel users
