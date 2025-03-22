@@ -11,6 +11,14 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin/v1'], function () {
+    //User
+    Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+    Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
+    Route::post('/user', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+    Route::get('/user/{id}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/{id}/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+    Route::delete('/user/{id}/destroy', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
+    
     //Jurusan
     Route::get('/', [App\Http\Controllers\JurusanController::class, 'index'])->name('jurusan.index');
     Route::get('/jurusan/create', [App\Http\Controllers\JurusanController::class, 'create'])->name('jurusan.create');

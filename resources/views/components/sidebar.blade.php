@@ -13,37 +13,14 @@
                 <li><a href="{{ route('jurusan.index') }}">Manajemen Jurusan</a></li>
                 <li><a href="{{ route('dudi.index') }}">Manajemen Dudi</a></li>
                 <li><a href="{{ route('guru.index') }}">Manajemen Guru</a></li>
-                <li><a href="icons-material-design-iconic.html">Material Design Iconic Font</a></li>
-                <li><a href="icons-themify-icons.html">Themify Icons</a></li>
+                <li><a href="{{ route('user.index') }}">Manajemen User Akun</a></li>
             </ul>
             <!-- /.sub-menu js__content -->
         </li>
-        <li>
-            <a class="waves-effect parent-item js__control" href="#"><i
-                    class="menu-icon fa fa-adjust"></i><span>User Interface</span><span
-                    class="menu-arrow fa fa-angle-down"></span></a>
-            <ul class="sub-menu js__content">
-                <li><a href="ui-buttons.html">Buttons</a></li>
-                <li><a href="ui-cards.html">Cards</a></li>
-                <li><a href="ui-checkbox-radio.html">Checkboxs-Radios</a></li>
-                <li><a href="ui-components.html">Components</a></li>
-                <li><a href="ui-draggable-cards.html">Draggable Cards</a></li>
-                <li><a href="ui-modals.html">Modals</a></li>
-                <li><a href="ui-notification.html">Notification</a></li>
-                <li><a href="ui-range-slider.html">Range Slider</a></li>
-                <li><a href="ui-sweetalert.html">Sweet Alert</a></li>
-                <li><a href="ui-treeview.html">Tree view</a></li>
-                <li><a href="ui-typography.html">Typography</a></li>
-            </ul>
-            <!-- /.sub-menu js__content -->
-        </li>
-        <li>
-            <a class="waves-effect" href="widgets.html"><i class="menu-icon fa fa-code"></i><span>Widgets</span><span
-                    class="notice notice-yellow">6</span></a>
-        </li>
+
     </ul>
     <!-- /.menu js__accordion -->
-    <h5 class="title">Components</h5>
+    <h5 class="title">Pengajuan PKL</h5>
     <!-- /.title -->
     <ul class="menu js__accordion">
         <li>
@@ -95,7 +72,7 @@
         </li>
     </ul>
     <!-- /.menu js__accordion -->
-    <h5 class="title">Additions</h5>
+    <h5 class="title">Kelola Akun</h5>
     <!-- /.title -->
     <ul class="menu js__accordion">
         <li>
@@ -104,41 +81,6 @@
         <li>
             <a class="waves-effect" href="inbox.html"><i class="menu-icon fa fa-envelope"></i><span>Mail</span><span
                     class="notice notice-danger">New</span></a>
-        </li>
-        <li class="current active">
-            <a class="waves-effect parent-item js__control" href="#"><i
-                    class="menu-icon fa fa-file-text"></i><span>Page</span><span
-                    class="menu-arrow fa fa-angle-down"></span></a>
-            <ul class="sub-menu js__content">
-                <li class="current"><a href="page-starter.html">Starter Page</a></li>
-                <li><a href="page-login.html">Login</a></li>
-                <li><a href="page-register.html">Register</a></li>
-                <li><a href="page-recoverpw.html">Recover Password</a></li>
-                <li><a href="page-lock-screen.html">Lock Screen</a></li>
-                <li><a href="page-confirm-mail.html">Confirm Mail</a></li>
-                <li><a href="page-404.html">Error 404</a></li>
-                <li><a href="page-500.html">Error 500</a></li>
-            </ul>
-            <!-- /.sub-menu js__content -->
-        </li>
-        <li>
-            <a class="waves-effect parent-item js__control" href="#"><i
-                    class="menu-icon fa fa-folder-open"></i><span>Extra Pages</span><span
-                    class="menu-arrow fa fa-angle-down"></span></a>
-            <ul class="sub-menu js__content">
-                <li><a href="extras-contact.html">Contact list</a></li>
-                <li><a href="extras-email-template.html">Email template</a></li>
-                <li><a href="extras-faq.html">FAQ</a></li>
-                <li><a href="extras-gallery.html">Gallery</a></li>
-                <li><a href="extras-invoice.html">Invoice</a></li>
-                <li><a href="extras-maps.html">Maps</a></li>
-                <li><a href="extras-pricing.html">Pricing</a></li>
-                <li><a href="extras-projects.html">Projects</a></li>
-                <li><a href="extras-taskboard.html">Taskboard</a></li>
-                <li><a href="extras-timeline.html">Timeline</a></li>
-                <li><a href="extras-tour.html">Tour</a></li>
-            </ul>
-            <!-- /.sub-menu js__content -->
         </li>
     </ul>
     <!-- /.menu js__accordion -->
