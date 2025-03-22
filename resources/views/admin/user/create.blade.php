@@ -100,6 +100,8 @@
                     title: 'Apakah Anda yakin?',
                     text: "Pastikan data yang dimasukkan sudah benar!",
                     icon: 'warning',
+                    width: 600,
+                    padding: '2em',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',

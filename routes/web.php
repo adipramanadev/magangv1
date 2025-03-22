@@ -42,4 +42,12 @@ Route::group(['prefix' => 'admin/v1'], function () {
     Route::get('/guru/{id}/edit', [App\Http\Controllers\GuruController::class, 'edit'])->name('guru.edit');
     Route::put('/guru/{id}/update', [App\Http\Controllers\GuruController::class, 'update'])->name('guru.update');
     Route::delete('/guru/{id}/destroy', [App\Http\Controllers\GuruController::class, 'destroy'])->name('guru.destroy');
+
+    //Pengajuan PKL
+    Route::get('/pengajuan', [App\Http\Controllers\PengajuanPKLController::class, 'index'])->name('pengajuan.index');
+    Route::get('/pengajuan/create', [App\Http\Controllers\PengajuanPKLController::class, 'create'])->name('pengajuan.create');
+    Route::post('/pengajuan', [App\Http\Controllers\PengajuanPKLController::class, 'store'])->name('pengajuan.store');
+    Route::get('/pengajuan/{id}/edit', [App\Http\Controllers\PengajuanPKLController::class, 'edit'])->name('pengajuan.edit');
+    Route::put('/pengajuan/{id}/update', [App\Http\Controllers\PengajuanPKLController::class, 'update'])->name('pengajuan.update');
+    Route::delete('/pengajuan/{id}/destroy', [App\Http\Controllers\PengajuanPKLController::class, 'destroy'])->name('pengajuan.destroy');
 });

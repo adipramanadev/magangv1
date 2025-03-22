@@ -27,14 +27,17 @@ class UserSeeder extends Seeder
             ['name' => 'Dudi 1', 'email' => 'dudi1@example.com', 'role' => 'dudi', 'status' => 'active'],
             ['name' => 'Dudi 2', 'email' => 'dudi2@example.com', 'role' => 'dudi', 'status' => 'active'],
             ['name' => 'Dudi 3', 'email' => 'dudi3@example.com', 'role' => 'dudi', 'status' => 'active'],
+            ['name' => 'Siswa 1', 'email' => 'siswa@example.com', 'role' => 'siswa', 'status' => 'active'],
+            ['name' => 'Siswa 2', 'email' => 'siswa2@example.com', 'role' => 'siswa', 'status' => 'active'],
+            ['name' => 'Siswa 3', 'email' => 'siswa3@example.com', 'role' => 'siswa', 'status' => 'active'],
         ];
 
-        // Looping untuk memasukkan data ke dalam tabel users
+       
         foreach ($users as $user) {
             User::create([
                 'name' => $user['name'],
                 'email' => $user['email'],
-                'password' => Hash::make('password123'), // Semua user memiliki password default
+                'password' => Hash::make('password123'), 
                 'role' => $user['role'],
                 'status' => $user['status'],
                 'email_verified_at' => Carbon::now(),
