@@ -81,6 +81,8 @@
                 icon: 'success',
                 title: 'Sukses!',
                 text: "{{ session('success') }}",
+                width: '600px',
+                padding: '2em',
                 showConfirmButton: false,
                 timer: 2000
             });
