@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('dudi_id')->references('id')->on('dudis')->onDelete('cascade');
             // Tanggal pengajuan dan status
             $table->date('tanggal_pengajuan');
+            $table->string('file_surat_pengajuan')->nullable();
             $table->enum('status_pengajuan', ['menunggu', 'diterima', 'ditolak'])->default('menunggu');
             $table->timestamps();
         });
