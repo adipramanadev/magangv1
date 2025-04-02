@@ -1,5 +1,4 @@
 @extends('master')
-
 @section('title')
     Pengajuan PKL
 @endsection
@@ -12,7 +11,8 @@
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4>Daftar Pengajuan PKL</h4>
                         <div class="text-end w-100">
-                            <a href="{{ route('pengajuan.create') }}" class="btn btn-primary waves-effect waves-light">Tambah Pengajuan</a>
+                            <a href="{{ route('pengajuan.create') }}" class="btn btn-primary waves-effect waves-light">Tambah
+                                Pengajuan</a>
                         </div>
                     </div>
                     <br>
@@ -51,13 +51,16 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-warning btn-xs">
+                                        <a href="{{ route('pengajuan.edit', $pengajuan->id) }}"
+                                            class="btn btn-warning btn-xs">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <form action="#" method="POST" style="display: inline-block;">
+                                        <form action="{{ route('pengajuan.destroy', $pengajuan->id) }}" method="POST"
+                                            style="display: inline-block;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Yakin ingin menghapus?')">
+                                            <button type="submit" class="btn btn-danger btn-xs"
+                                                onclick="return confirm('Yakin ingin menghapus?')">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </form>
@@ -66,7 +69,6 @@
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
