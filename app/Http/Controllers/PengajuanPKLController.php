@@ -111,7 +111,7 @@ class PengajuanPKLController extends Controller
             $file = $request->file('file_surat_pengajuan');
             $filename = 'surat_' . Str::random(10) . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/surat_pengajuan', $filename);
-            $pengajuan->file_surat_pengajuan = 'surat_pengajuan/' . $filename;
+            $pengajuan->file_surat_pengajuan = 'surat_pengajuan/' . $filename; // Tanpa "public/"
         }
     
         $pengajuan->dudi_id = $request->dudi_id;

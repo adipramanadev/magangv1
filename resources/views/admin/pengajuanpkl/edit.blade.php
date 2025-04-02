@@ -15,6 +15,7 @@
                         @csrf
                         @method('PUT')
 
+                        {{-- Nama Siswa --}}
                         <div class="form-group">
                             <label for="user_id" class="col-sm-2 control-label">Nama Siswa</label>
                             <div class="col-sm-10">
@@ -24,6 +25,7 @@
                             </div>
                         </div>
 
+                        {{-- Nama DUDI --}}
                         <div class="form-group">
                             <label for="dudi_id" class="col-sm-2 control-label">Nama DUDI</label>
                             <div class="col-sm-10">
@@ -38,6 +40,7 @@
                             </div>
                         </div>
 
+                        {{-- Tanggal Pengajuan --}}
                         <div class="form-group">
                             <label for="tanggal_pengajuan" class="col-sm-2 control-label">Tanggal</label>
                             <div class="col-sm-10">
@@ -46,6 +49,7 @@
                             </div>
                         </div>
 
+                        {{-- Status Pengajuan --}}
                         <div class="form-group">
                             <label for="status_pengajuan" class="col-sm-2 control-label">Status</label>
                             <div class="col-sm-10">
@@ -60,27 +64,42 @@
                             </div>
                         </div>
 
+                        {{-- File Surat Pengajuan --}}
                         <div class="form-group">
                             <label for="file_surat_pengajuan" class="col-sm-2 control-label">Ganti Surat (PDF)</label>
                             <div class="col-sm-10">
                                 <input type="file" name="file_surat_pengajuan" class="form-control"
                                     accept="application/pdf">
-                                @if ($pengajuan->file_surat_pengajuan)
-                                    {{-- <p class="mt-2">File saat ini: <a href="{{ Storage::url($pengajuan->file_surat_pengajuan) }}" target="_blank">Lihat Surat</a></p> --}}
-                                    <p class="mt-2">File Saat Ini : <a
-                                            href="{{ asset('storage/' . Str::after($pengajuan->file_surat_pengajuan, 'public/')) }}"
-                                            target="_blank">Lihat Surat</a>
 
-                                    </p>
+                                {{-- Preview file jika ada --}}
+                                @if ($pengajuan->file_surat_pengajuan)
+                                    @php
+                                        $filePath = 'storage/' . $pengajuan->file_surat_pengajuan;
+                                        $fileExists = file_exists(public_path($filePath));
+                                    @endphp
+
+                                    @if ($fileExists)
+                                        <p class="mt-2">
+                                            File Saat Ini:
+                                            <a href="{{ asset($filePath) }}" target="_blank"
+                                                class="btn btn-sm btn-outline-primary">
+                                                <i class="fa fa-file-pdf-o"></i> Lihat Surat
+                                            </a>
+                                        </p>
+                                    @else
+                                        <p class="text-danger mt-2">File tidak ditemukan di server.</p>
+                                    @endif
                                 @endif
                             </div>
                         </div>
 
+                        {{-- Tombol Submit --}}
                         <div class="form-group margin-bottom-1">
                             <div class="col-sm-offset-2 col-sm-10 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-info btn-sm waves-effect waves-light">Update</button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
