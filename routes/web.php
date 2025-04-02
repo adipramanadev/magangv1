@@ -50,4 +50,14 @@ Route::group(['prefix' => 'admin/v1'], function () {
     Route::get('/pengajuan/{id}/edit', [App\Http\Controllers\PengajuanPKLController::class, 'edit'])->name('pengajuan.edit');
     Route::put('/pengajuan/{id}/update', [App\Http\Controllers\PengajuanPKLController::class, 'update'])->name('pengajuan.update');
     Route::delete('/pengajuan/{id}/destroy', [App\Http\Controllers\PengajuanPKLController::class, 'destroy'])->name('pengajuan.destroy');
+
+
+    
 });
+
+//route : untuk mengambil data 
+Route::get('hello', function () {
+    return '<h1>Hello World</h1>';
+});
+
+Route::get('helloworld', [App\Http\Controllers\MicroteachingController::class, 'index']);
