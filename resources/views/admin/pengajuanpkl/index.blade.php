@@ -51,10 +51,12 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-warning btn-xs">
+                                        <a href="{{ route('pengajuan.edit', $pengajuan->id) }}"
+                                            class="btn btn-warning btn-xs">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <form action="#" method="POST" style="display: inline-block;">
+                                        <form action="{{ route('pengajuan.destroy', $pengajuan->id) }}" method="POST"
+                                            style="display: inline-block;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-xs"
